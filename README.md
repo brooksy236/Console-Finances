@@ -8,7 +8,7 @@ Written in JavaScript it displays: the total amount of months; total amount of P
 
 ## **Site Link**
 
-Visit my Portfolio here: https://brooksy236.github.io/Console-Finances/
+Visit my Portfolio here: https://brooksy236.github.io/Console-Finances/ 
 
 ## **Screenshots**
 

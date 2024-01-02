@@ -89,38 +89,41 @@ var finances = [
 ];
 
 //Display start
+
 console.log("Financial Analysis")
 console.log("------------------")
 
 // Number of Months
-const numberOfMonths = finances.length
+
+const numberOfMonths = finances.length 
 console.log("Total Months: " + numberOfMonths)
 
-// Net Total
+// Net Total & Average Change
+
 let netTotal = 0;
 let change = 0;
 
-for (let i = 1; i < finances.length; i++) {
+for (let i = 1; i < finances.length; i++) { // we have 'i = 1' because if it was '0' then line 105 wouldn't work properly 
   netTotal += finances[i][1];
-  change += finances[i][1] - finances[i - 1][1];  
+  change += finances[i][1] - finances[i - 1][1];  //this subtracts the first interation of finances amount from the second. It took me ages to figure this out, ages. I thought I had to a finances[a][1] and finances[b][1] and somehow iterate through 'a' and 'b' or something.
 }
 
-console.log("Total: $" + (netTotal+finances[0][1]));
-const averageChange = (change / (finances.length - 1)).toFixed(2);
-console.log("Average change: $" + (averageChange));
+console.log("Total: $" + (netTotal+finances[0][1])); //I had to add finances[0][1] to netTotal as the netTotal on line 104 starts from finances[1][1]
+const averageChange = (change / (finances.length - 1)).toFixed(2); //I used the 'toFixed' method to round to 2 decimal places. 
+console.log("Average change: $" + (averageChange)); //I tried 'Math.fround' but couldn't get it to work.
 
 // Greatest Increase and Decrease in Profits/Losses
 
 let greatestIncrease = 0;
 let greatestIncreaseDate = '';
-let greatestDecrease = 0;
+let greatestDecrease = 0;  
 let greatestDecreaseDate = '';
 
 for (let i = 1; i < finances.length; i++) {
-  const monthlyChange = finances[i][1] - finances[i - 1][1];
-  if (monthlyChange > greatestIncrease) {
-    greatestIncrease = monthlyChange;
-    greatestIncreaseDate = finances[i][0];
+  const monthlyChange = finances[i][1] - finances[i - 1][1]; // I tried to add all the following under the first 'for' loop but it interfered with the 'averageChange' variable so I had to write a seperate one.
+  if (monthlyChange > greatestIncrease) { //The if statements log each change into the monthlyChange variable until the highest value (or smallest for the greatestDecrease) has been found.
+    greatestIncrease = monthlyChange; //
+    greatestIncreaseDate = finances[i][0]; //greatestIncreaseDate logs the date of the amount in the greatestIncrease variable. (Same for greatestDecrease)
   } if (monthlyChange < greatestDecrease) {
     greatestDecrease = monthlyChange;
     greatestDecreaseDate = finances[i][0];
