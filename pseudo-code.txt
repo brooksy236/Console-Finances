@@ -1,0 +1,10 @@
+
+calculate the number of months
+
+
+calculate the net total amount of profit/losses
+the average of the changes in profit/losses
+track the changes from month to month & find average
+greatest increase in profit/losses 
+greatest decrease in profit/losses
+
